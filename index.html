@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LET — Language Experience & Training | Preparación Cambridge & IELTS</title>
+<meta name="description" content="Academia online especializada en preparación para exámenes Cambridge (B1, B2, C1) e IELTS. Método, práctica y acompañamiento personalizado.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violeta: #5E12DB;
+    --violeta-deep: #3D0B99;
+    --lila: #F3ECFF;
+    --verde: #7ED957;
+    --gris-oscuro: #2F2F2F;
+    --gris-claro: #E5E7EB;
+    --blanco: #FFFFFF;
+    --coral: #EC5F57;
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gris-oscuro);
+    background: var(--blanco);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    color: var(--violeta-deep);
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--violeta);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: var(--verde);
+    display: inline-block;
+  }
+
+  /* NAV */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gris-claro);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+  }
+  .nav img { height: 38px; }
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .nav-links a {
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--verde);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: var(--verde);
+    color: var(--violeta-deep);
+    box-shadow: 0 8px 20px rgba(126,217,87,0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--violeta);
+    border: 1.5px solid var(--violeta);
+  }
+  .btn-outline:hover { background: var(--lila); }
+
+  .menu-toggle { display: none; background: none; border: none; font-size: 1.6rem; color: var(--violeta-deep); cursor: pointer; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    background: var(--lila);
+    padding: 90px 0 70px;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    font-weight: 800;
+    margin: 18px 0 20px;
+  }
+  .hero h1 span { color: var(--verde); -webkit-text-stroke: 0; }
+  .hero p.lead {
+    font-size: 1.12rem;
+    color: #4a4a4a;
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .hero-visual { display: flex; justify-content: center; }
+  .hero-logo-card {
+    background: var(--blanco);
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 24px 50px rgba(94,18,219,0.14);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(94,18,219,0.08);
+  }
+  .hero-program-logo { width: 100%; height: auto; border-radius: 10px; }
+  .hero-badge-row {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gris-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-cambridge-badge { height: 44px; width: auto; }
+  .hero-ielts-chip {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--violeta-deep);
+    background: var(--lila);
+    padding: 8px 14px;
+    border-radius: 100px;
+  }
+
+  /* SECTION generic */
+  section { padding: 88px 0; }
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+  .section-head h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-top: 10px;
+  }
+  .section-head p { color: #555; margin-top: 14px; font-size: 1.05rem; }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* QUIENES SOMOS */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-grid p { margin-bottom: 16px; color: #444; font-size: 1.02rem; }
+
+  .founder-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 26px;
+    background: var(--lila);
+    border-radius: 18px;
+    padding: 16px 20px 16px 16px;
+  }
+  .founder-card img {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--blanco);
+  }
+  .founder-card h4 { font-size: 1.05rem; margin: 0; color: var(--violeta-deep); }
+  .founder-card span { font-size: 0.85rem; color: #6b6b6b; font-weight: 600; }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 10px;
+  }
+  .pillar {
+    background: var(--blanco);
+    border: 1px solid var(--gris-claro);
+    border-radius: 18px;
+    padding: 26px 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .pillar:hover { transform: translateY(-6px); box-shadow: 0 16px 30px rgba(94,18,219,0.1); }
+  .pillar .num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--verde);
+    letter-spacing: 0.05em;
+  }
+  .pillar h4 { font-size: 1.08rem; margin: 10px 0 8px; }
+  .pillar p { font-size: 0.94rem; color: #555; }
+
+  /* PARA VOS SI */
+  .fit-section { background: var(--violeta-deep); color: var(--blanco); }
+  .fit-section .eyebrow { color: var(--verde); }
+  .fit-section .eyebrow::before { background: var(--verde); }
+  .fit-section h2 { color: var(--blanco); }
+  .fit-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 40px;
+  }
+  .fit-item {
+    display: flex;
+    gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    padding: 20px 22px;
+  }
+  .fit-item .mark {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--violeta-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+  }
+  .fit-item p { color: rgba(255,255,255,0.88); font-size: 0.97rem; }
+  .fit-item strong { color: var(--verde); }
+
+  /* CURSOS */
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .curso-card {
+    border: 1px solid var(--gris-claro);
+    border-radius: 22px;
+    padding: 32px 30px;
+    background: var(--blanco);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .curso-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 34px rgba(94,18,219,0.12);
+    border-color: var(--violeta);
+  }
+  .curso-tag {
+    display: inline-block;
+    background: var(--lila);
+    color: var(--violeta);
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    letter-spacing: 0.03em;
+    align-self: flex-start;
+  }
+  .curso-card h3 { font-size: 1.5rem; margin: 14px 0 8px; }
+  .curso-card p.desc { font-size: 0.95rem; color: #555; margin-bottom: 20px; }
+  .curso-card .curso-cta {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--violeta);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+  }
+
+  /* niveles dentro de un mismo programa (Cambridge) */
+  .niveles-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .nivel-chip {
+    border: 1px solid var(--gris-claro);
+    border-radius: 12px;
+    padding: 14px 12px;
+    background: var(--lila);
+  }
+  .nivel-chip .nivel-tag {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--violeta-deep);
+    font-size: 1rem;
+  }
+  .nivel-chip .nivel-nombre {
+    font-size: 0.78rem;
+    color: #666;
+    font-weight: 600;
+  }
+  .curso-card.ielts { background: var(--violeta-deep); border-color: var(--violeta-deep); }
+  .curso-card.ielts h3, .curso-card.ielts .curso-tag { color: var(--blanco); }
+  .curso-card.ielts .curso-tag { background: rgba(255,255,255,0.14); color: var(--verde); }
+  .curso-card.ielts p.desc { color: rgba(255,255,255,0.82); }
+  .curso-card.ielts .curso-cta { color: var(--verde); }
+  .curso-card.ielts .ielts-modos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .curso-card.ielts .ielts-modos span {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .program-logo-badge {
+    background: var(--lila);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: inline-block;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+  .program-logo-badge img { width: 100%; height: auto; display: block; }
+
+  .formato-box {
+    margin-top: 50px;
+    background: var(--lila);
+    border-radius: 22px;
+    padding: 38px 34px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .formato-item { display: flex; gap: 12px; align-items: flex-start; }
+  .formato-item .ico {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--blanco);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+  .formato-item span.label { font-weight: 700; font-size: 0.95rem; color: var(--violeta-deep); }
+
+  /* TESTIMONIOS */
+  .testi-section { background: #FAF7FF; }
+  .pullquotes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .pullquote h4 {
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+  .pullquote h4.violeta { color: var(--violeta); }
+  .pullquote h4.verde { color: #4a9e2a; }
+  .pullquote-shot {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 12px 26px rgba(47,47,47,0.1);
+  }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .testi-card {
+    background: var(--blanco);
+    border-radius: 18px;
+    padding: 20px 20px 24px;
+  }
+  .testi-shot {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .testi-card .who { font-weight: 700; color: var(--violeta-deep); font-size: 0.92rem; }
+  .testi-card .who span { display: block; font-weight: 500; color: #777; font-size: 0.82rem; }
+
+  /* FAQ */
+  .faq-list { max-width: 780px; }
+  .faq-item {
+    border-bottom: 1px solid var(--gris-claro);
+    padding: 22px 0;
+  }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.03rem;
+    color: var(--violeta-deep);
+  }
+  .faq-q .icon {
+    font-size: 1.3rem;
+    color: var(--violeta);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 20px;
+  }
+  .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: #555;
+    font-size: 0.96rem;
+  }
+  .faq-item.open .faq-a { max-height: 300px; margin-top: 14px; }
+
+  /* CONTACTO */
+  .contact-section {
+    background: linear-gradient(135deg, var(--violeta) 0%, var(--violeta-deep) 100%);
+    color: var(--blanco);
+    text-align: center;
+    border-radius: 28px;
+    margin: 0 24px 0;
+    padding: 64px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
+  .contact-section h2 { color: var(--blanco); font-size: clamp(1.7rem, 3vw, 2.2rem); }
+  .contact-section p { color: rgba(255,255,255,0.85); margin: 16px 0 30px; }
+  .contact-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-section .btn-outline { border-color: rgba(255,255,255,0.5); color: var(--blanco); }
+  .contact-section .btn-outline:hover { background: rgba(255,255,255,0.12); }
+
+  /* FOOTER */
+  footer {
+    padding: 46px 24px 30px;
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+  }
+  footer img { height: 26px; margin: 0 auto 14px; }
+  .foot-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 14px; }
+  .foot-links a { font-weight: 700; color: var(--violeta); }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 58px; height: 58px;
+    background: var(--verde);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 26px rgba(126,217,87,0.5);
+    z-index: 200;
+    transition: transform 0.2s ease;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 28px; height: 28px; }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
+    .pillars { grid-template-columns: 1fr; }
+    .cursos-grid { grid-template-columns: 1fr; }
+    .formato-box { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .fit-list { grid-template-columns: 1fr; }
+    .pullquotes { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { position: fixed; top: 66px; left: 0; right: 0; background: var(--blanco); flex-direction: column; align-items: flex-start; padding: 20px 24px; gap: 18px; border-bottom: 1px solid var(--gris-claro); transform: translateY(-140%); transition: transform 0.3s ease; }
+    .nav-links.open { transform: translateY(0); }
+    .menu-toggle { display: block; }
+    .formato-box { grid-template-columns: 1fr; padding: 30px 24px; }
+    .niveles-row { grid-template-columns: 1fr; }
+    section { padding: 60px 0; }
+    .contact-section { border-radius: 20px; margin: 0 14px; padding: 48px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top"><img src="assets/logo.png" alt="LET — Language Experience & Training"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://wa.me/5491172377913" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:70px;">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Cambridge B1 · B2 · C1 · IELTS</span>
+        <h1>Tu camino hacia tu <span>certificado Cambridge</span> empieza acá.</h1>
+        <p class="lead">En LET te acompañamos con método, práctica real y feedback personalizado para que llegues a tu examen con seguridad — y te vayas con el resultado que buscás.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5491172377913" target="_blank" rel="noopener" class="btn btn-primary">
+            Escribinos por WhatsApp
+          </a>
+          <a href="#cursos" class="btn btn-outline">Ver cursos</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-logo-card">
+          <img class="hero-program-logo" src="assets/program-logo.png" alt="The LET Way to Cambridge">
+          <div class="hero-badge-row">
+            <img class="hero-cambridge-badge" src="assets/cambridge-badge.png" alt="We prepare for Cambridge English Qualifications">
+            <span class="hero-ielts-chip">+ IELTS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIENES SOMOS -->
+  <section id="quienes-somos">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="eyebrow">Quiénes somos</span>
+          <h2>LET — Language Experience & Training</h2>
+          <div class="founder-card">
+            <img src="assets/yani.png" alt="Yani, fundadora y profesora de LET">
+            <div>
+              <h4>Yani</h4>
+              <span>Fundadora & profesora</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <p>Somos una academia online especializada en la preparación de exámenes internacionales de Cambridge English (B1 Preliminary, B2 First, C1 Advanced) e IELTS.</p>
+          <p>Trabajamos con grupos reducidos y un método pensado para que entiendas el examen, practiques como si fuera el día real y recibas devoluciones concretas de Yani sobre cada entrega — nada de correcciones genéricas.</p>
+          <div class="pillars">
+            <div class="pillar">
+              <span class="num">01</span>
+              <h4>Estrategia con propósito</h4>
+              <p>Te enseñamos a entender el examen, planificar tu estudio y tomar decisiones inteligentes.</p>
+            </div>
+            <div class="pillar">
+              <span class="num">02</span>
+              <h4>Práctica efectiva</h4>
+              <p>Ejercicios diseñados para simular el examen real y ganar seguridad en cada sección.</p>
+            </div>
+            <div class="pillar">
+              <span class="num">03</span>
+              <h4>Feedback personalizado</h4>
+              <p>Devoluciones claras y accionables para convertir tus errores en oportunidades de mejora.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA VOS SI -->
+  <section class="fit-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">¿Es para vos?</span>
+        <h2>Este programa es para vos si...</h2>
+      </div>
+      <div class="fit-list">
+        <div class="fit-item reveal">
+          <span class="mark">✓</span>
+          <p>Decidiste que llegó el momento de <strong>dejar de postergar</strong> ese certificado que necesitás para tu próximo paso laboral o académico.</p>
+        </div>
+        <div class="fit-item reveal">
+          <span class="mark">✓</span>
+          <p>Querés prepararte con un <strong>método claro y práctico</strong>, con acompañamiento para sacar la mejor nota posible.</p>
+        </div>
+        <div class="fit-item reveal">
+          <span class="mark">✓</span>
+          <p>Te gusta tener una <strong>guía paso a paso</strong>, pero también querés avanzar con autonomía y confianza.</p>
+        </div>
+        <div class="fit-item reveal">
+          <span class="mark">✓</span>
+          <p>Sabés que para aprobar hace falta algo más: <strong>práctica real, enfoque</strong> y un plan que funcione.</p>
+        </div>
+        <div class="fit-item reveal" style="grid-column: span 2;">
+          <span class="mark">✓</span>
+          <p>Querés ser parte de un espacio donde <strong>el error y las dudas</strong> son parte fundamental del progreso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section id="cursos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Cursos</span>
+        <h2>Elegí el examen que te acerca a tu objetivo</h2>
+        <p>Tenemos dos caminos: <strong>The LET Way to Cambridge</strong>, con los niveles B1, B2 y C1, e <strong>IELTS</strong> como programa aparte. Ambos siguen el mismo método: estrategia, práctica y feedback real.</p>
+      </div>
+      <div class="cursos-grid">
+        <div class="curso-card reveal">
+          <div class="program-logo-badge">
+            <img src="assets/program-logo.png" alt="The LET Way to Cambridge">
+          </div>
+          <p class="desc">Nuestro programa insignia para certificarte con Cambridge English. Elegís el nivel según tu punto de partida y tu objetivo, y avanzás con el mismo método en los tres.</p>
+          <div class="niveles-row">
+            <div class="nivel-chip">
+              <div class="nivel-tag">B1</div>
+              <div class="nivel-nombre">Preliminary</div>
+            </div>
+            <div class="nivel-chip">
+              <div class="nivel-tag">B2</div>
+              <div class="nivel-nombre">First</div>
+            </div>
+            <div class="nivel-chip">
+              <div class="nivel-tag">C1</div>
+              <div class="nivel-nombre">Advanced</div>
+            </div>
+          </div>
+          <a href="https://wa.me/5491172377913" target="_blank" rel="noopener" class="curso-cta">Consultar mi nivel y próximo grupo →</a>
+        </div>
+
+        <div class="curso-card ielts reveal">
+          <span class="curso-tag">Programa aparte</span>
+          <h3>IELTS</h3>
+          <p class="desc">Preparación específica para IELTS, con simulacros del examen real y estrategia por sección, pensada para estudios o migración.</p>
+          <div class="ielts-modos">
+            <span>Academic</span>
+            <span>General Training</span>
+          </div>
+          <a href="https://wa.me/5491172377913" target="_blank" rel="noopener" class="curso-cta">Consultar próximo grupo →</a>
+        </div>
+      </div>
+
+      <div class="formato-box reveal">
+        <div class="formato-item"><span class="ico">💻</span><div><span class="label">1 clase semanal en vivo</span></div></div>
+        <div class="formato-item"><span class="ico">🧠</span><div><span class="label">Práctica asincrónica</span></div></div>
+        <div class="formato-item"><span class="ico">📂</span><div><span class="label">Material incluido</span></div></div>
+        <div class="formato-item"><span class="ico">👥</span><div><span class="label">Grupos reducidos</span></div></div>
+        <div class="formato-item"><span class="ico">💬</span><div><span class="label">Grupo exclusivo de WhatsApp</span></div></div>
+        <div class="formato-item"><span class="ico">🎁</span><div><span class="label">Guías de regalo</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios" class="testi-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Testimonios</span>
+        <h2>Lo que dicen nuestros estudiantes</h2>
+      </div>
+
+      <div class="pullquotes">
+        <div class="pullquote reveal">
+          <h4 class="violeta">Un espacio que te impulsa</h4>
+          <img class="pullquote-shot" src="assets/testi-pull1.png" alt="Testimonio: un espacio que te impulsa">
+        </div>
+        <div class="pullquote reveal">
+          <h4 class="verde">Estrategia, estrategia, estrategia</h4>
+          <img class="pullquote-shot" src="assets/testi-pull2.png" alt="Testimonio: estrategia, estrategia, estrategia">
+        </div>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <img class="testi-shot" src="assets/testi-ema.png" alt="Testimonio de Ema, alumna de LET">
+          <div class="who">Ema<span>Alumna</span></div>
+        </div>
+        <div class="testi-card reveal">
+          <img class="testi-shot" src="assets/testi-pame.png" alt="Testimonio de alumna de B2, curso First">
+          <div class="who">Alumna B2<span>Curso First</span></div>
+        </div>
+        <div class="testi-card reveal">
+          <img class="testi-shot" src="assets/testi-paula.png" alt="Testimonio de Paula, curso B2">
+          <div class="who">Paula<span>Curso B2</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Todo lo que necesitás saber</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-q">¿Qué exámenes preparan en LET? <span class="icon">+</span></div>
+          <div class="faq-a"><p>Preparamos para Cambridge English Qualifications (B1 Preliminary, B2 First y C1 Advanced) e IELTS, en su versión Academic o General.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">¿Las clases son online? <span class="icon">+</span></div>
+          <div class="faq-a"><p>Sí, todas nuestras clases son online, en vivo y con grupos reducidos para que el acompañamiento sea real.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">¿Cómo sé qué nivel me corresponde? <span class="icon">+</span></div>
+          <div class="faq-a"><p>Escribinos por WhatsApp y te ayudamos a definir el nivel según tu objetivo y tu punto de partida.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">¿Qué incluye el programa? <span class="icon">+</span></div>
+          <div class="faq-a"><p>Una clase semanal en vivo, práctica asincrónica, material de estudio, grupo exclusivo de WhatsApp y guías de regalo (pronunciación, writing y más).</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">¿Cómo consulto precios y fechas de inicio? <span class="icon">+</span></div>
+          <div class="faq-a"><p>Escribinos por WhatsApp o Instagram y te contamos los próximos grupos disponibles y la inversión según el nivel.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section>
+    <div class="contact-section reveal">
+      <div class="contact-inner">
+        <span class="eyebrow" style="color:#7ED957;">Contacto</span>
+        <h2>¿Listo para empezar tu camino a la certificación?</h2>
+        <p>Contanos qué examen querés rendir y armamos juntos tu plan.</p>
+        <div class="contact-ctas">
+          <a href="https://wa.me/5491172377913" target="_blank" rel="noopener" class="btn btn-primary">Escribir por WhatsApp</a>
+          <a href="https://instagram.com/let.masterenglish" target="_blank" rel="noopener" class="btn btn-outline">Seguinos en Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <img src="assets/logo.png" alt="LET">
+  <div class="foot-links">
+    <a href="https://wa.me/5491172377913" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://instagram.com/let.masterenglish" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <p>© 2026 LET — Language Experience & Training. Todos los derechos reservados.</p>
+</footer>
+
+<a href="https://wa.me/5491172377913" target="_blank" rel="noopener" class="wa-float" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.34.65 4.53 1.78 6.4L4 29l7.78-1.75A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm0 21.8c-1.94 0-3.76-.52-5.33-1.43l-.38-.22-4.62 1.04 1.06-4.5-.25-.4A9.77 9.77 0 0 1 6.2 15c0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.4 9.8-9.8 9.8zm5.38-7.34c-.29-.15-1.73-.86-2-.96-.27-.1-.47-.15-.66.15-.2.29-.76.95-.93 1.15-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.44-.87-.77-1.45-1.72-1.62-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.51-.17 0-.37-.01-.56-.01-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44 0 1.43 1.05 2.82 1.2 3.01.15.2 2.06 3.15 5 4.41.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.73-.7 1.97-1.38.24-.68.24-1.26.17-1.38-.07-.13-.26-.2-.55-.35z"/></svg>
+</a>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
